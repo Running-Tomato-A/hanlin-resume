@@ -373,6 +373,22 @@ body{background:var(--paper);}
 }
 @media(max-width:360px){.resume-header .navigation{display:none;}.resume-header .header-right{gap:10px;}.motion-hero h1{font-size:38px;}.resume-position{font-size:20px;}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;}}
+
+/* A small, playable collection within the existing project section. */
+.video-work{margin-top:68px;padding-top:28px;border-top:1px solid var(--line)}
+.video-work-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:22px}
+.video-work-head h3{font-size:23px;letter-spacing:-.5px;margin-top:5px}
+.video-work-head p:last-child{font-size:12px;color:var(--muted)}
+.video-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.video-item{min-width:0}
+.video-screen{height:235px;background:#272a26;border-radius:10px;overflow:hidden}
+.video-screen video{display:block;width:100%;height:100%;object-fit:contain}
+.video-item h4{font-size:14px;margin:12px 0 3px;line-height:1.5}
+.video-item p{font-size:12px;color:var(--text);line-height:1.7}
+.video-item .video-meta{color:var(--muted);margin-top:4px;font-size:11px}
+@media(max-width:760px){.video-work{margin-top:48px}.video-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px}.video-screen{height:210px}.video-work-head{align-items:start;flex-direction:column;gap:4px}}
+@media(max-width:370px){.video-screen{height:175px}}
+
 </style></head><body id="top"><a class="skip-link" href="#main">跳到主要内容</a>
 <header class="resume-header"><div class="resume-header-inner">
  <a class="brand" href="#top" aria-label="丛瀚林，返回简历首页"><svg class="brand-mark" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M5 7h12M5 14h18M5 21h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="m21 4 3 3-3 3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>丛瀚林｜番茄</span><small>个人简历</small></a>
@@ -437,6 +453,16 @@ body{background:var(--paper);}
           <ul class="tags" aria-label="项目关键词"><li>抖音</li><li>视觉内容</li><li>个人账号</li></ul>
           <div class="project-actions"><a class="project-link" href="https://v.douyin.com/-ppbn5elBxI/" target="_blank" rel="noopener noreferrer" aria-label="查看番茄视觉抖音作品，在新标签页打开">查看抖音作品<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10"/></svg></a></div>
         </article>
+      </div>
+
+      <div class="video-work" id="video-work" aria-labelledby="video-work-title">
+        <div class="video-work-head"><div><p class="eyebrow mono">VIDEO / SELECTED WORKS</p><h3 id="video-work-title">视频剪辑与视觉实践</h3></div><p>点击画面播放，声音可自行调节</p></div>
+        <div class="video-grid">
+          <article class="video-item"><div class="video-screen"><video controls preload="none" playsinline poster="media/commerce.png" aria-label="播放服饰带货剪辑作品"><source src="media/commerce.mp4" type="video/mp4">您的浏览器不支持视频播放。</video></div><h4>服饰带货 · 剪辑作品</h4><p>基于提供的实拍素材完成视频剪辑。</p><p class="video-meta">兼职作品 · 素材非本人拍摄</p></article>
+          <article class="video-item"><div class="video-screen"><video controls preload="none" playsinline poster="media/coffee.png" aria-label="播放咖啡短片剪辑"><source src="media/coffee.mp4" type="video/mp4">您的浏览器不支持视频播放。</video></div><h4>咖啡短片 · 竖屏剪辑</h4><p>围绕咖啡场景进行短片剪辑。</p><p class="video-meta">网络素材来源：Pexels</p></article>
+          <article class="video-item"><div class="video-screen"><video controls preload="none" playsinline poster="media/wander.png" aria-label="播放旅行短片剪辑"><source src="media/wander.mp4" type="video/mp4">您的浏览器不支持视频播放。</video></div><h4>旅行短片 · 横屏剪辑</h4><p>以旅行影像进行节奏与画面编排。</p><p class="video-meta">网络素材来源：Pexels</p></article>
+          <article class="video-item"><div class="video-screen"><video controls preload="none" playsinline poster="media/visual.png" aria-label="播放像素视觉动画实践"><source src="media/visual.mp4" type="video/mp4">您的浏览器不支持视频播放。</video></div><h4>像素动画 · 视觉实验</h4><p>结合 Grok、代码与 Remotion 制作的视觉展示。</p><p class="video-meta">视觉表达与工具实践</p></article>
+        </div>
       </div>
     </section>
 
@@ -806,4 +832,5 @@ body{background:var(--paper);}
         stats(){return {points:pointCount,gridColumns:cols,gridRows:rows,frames,renderCostMs:Math.round(renderCost*10)/10,paused,inView,width:W,height:H,dpr};}
       };
     })();
-  </script></body></html>
+  </script><script>document.querySelectorAll('.video-work video').forEach(video=>video.addEventListener('play',()=>document.querySelectorAll('.video-work video').forEach(other=>{if(other!==video)other.pause()})));</script>
+</body></html>
